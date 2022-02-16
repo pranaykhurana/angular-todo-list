@@ -1,0 +1,131 @@
+
+.heading-section {
+  background-color: lightseagreen;
+  padding: 100px 100px 150px;
+
+  h1.title {
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 1px 3px rgba(black, 0.2);
+  }
+}
+
+.container {
+  max-width: 800px;
+}
+
+
+.add-todo-box {
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  margin-top: -70px;
+  box-shadow: 0 4px 7px rgba(black, 0.2);
+}
+
+.todo-item {
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+  padding: 35px 15px;
+  position: relative;
+
+  border-bottom: 1px solid #f2f3f5;
+
+  cursor: pointer;
+
+  &.completed {
+    color: #aaa;
+  }
+}
+
+.todo-item .check-box {
+  display: flex;
+  flex-shrink: 0;
+  border: 2px solid #eee;
+  border-radius: 50%;
+
+  height: 28px;
+  width: 28px;
+
+  margin-right: 20px;
+
+  transition: background-color 0.2s;
+  i.material-icons {
+    font-size: 20px;
+    margin: auto;
+
+    color: #333;
+
+    //hide bny default
+    opacity: 0;
+
+    transition: opacity 0.2s;
+  }
+}
+
+.todo-item:hover .check-box {
+  background: #eee;
+  i.material-icons {
+    opacity: 0.28;
+  }
+}
+
+.todo-item.completed .check-box {
+  background: cadetblue;
+  border-color: cadetblue;
+
+  i.material-icons {
+    opacity: 1;
+  }
+}
+
+.todo-item .todo-controls-box {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+
+  display: flex;
+
+  //hide by default
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(2px);
+
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+}
+
+.todo-item:hover .todo-controls-box {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.4s;
+
+  transform: translateY(0);
+}
+
+.todo-controls-box .todo-control-button {
+  display: flex;
+  background: #f5f7f8;
+  padding: 7px 10px;
+
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+
+  i.material-icons {
+    color: #555;
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: #eeeeee;
+
+    i.material-icons {
+      color: #333333;
+    }
+  }
+
+  &:active{
+    background: #e5e7e8;
+  }
+}
+
