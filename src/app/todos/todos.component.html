@@ -3,7 +3,7 @@
 </section>
 
 
-<div class="container">
+<div class="container add-todo-box-container">
   <div class="add-todo-box">
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
       <h2 class="title is-5">New Todo</h2>
@@ -29,24 +29,12 @@
 <section class="section">
   <div class="container">
     <div class="todo-list">
-      <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
-        <div class="check-box">
-          <i class="material-icons">check</i>
-        </div>
-
-        <div class="todo-text">
-         {{todo.text}}
-        </div>
-
-        <div class="todo-controls-box">
-          <div class="todo-control-button">
-            <i class="material-icons">edit</i>
-          </div>
-          <div class="todo-control-button">
-            <i class="material-icons">delete</i>
-          </div>
-        </div>
-      </div>
+      <app-todo-item
+        *ngFor="let todo of todos"
+        [todo]="todo"
+        (todoClicked)="toggleCompleted(todo)"
+        (editClicked)="editTodo(todo)"
+        (deletelicked)="deleteTodo(todo)"></app-todo-item>
     </div>
   </div>
 </section>
