@@ -1,0 +1,32 @@
+
+.heading-section {
+  background-color: lightseagreen;
+  padding: 100px 100px 150px;
+
+  h1.title {
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 1px 3px rgba(black, 0.2);
+  }
+}
+
+.container {
+  max-width: 800px;
+}
+
+.add-todo-box-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.add-todo-box {
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  margin-top: -70px;
+  box-shadow: 0 4px 7px rgba(black, 0.2);
+}
+
+
+
