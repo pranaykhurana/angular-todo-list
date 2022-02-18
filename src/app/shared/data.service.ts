@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Todo} from "./todo.model";
 
 @Injectable({
@@ -6,27 +6,33 @@ import {Todo} from "./todo.model";
 })
 export class DataService {
 
-  todos: Todo[] = [
-    new Todo('this is a test', true),
-    new Todo('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
-
-  ]
+  todos: Todo[] = []
 
   constructor() { }
 
   getAllTodos() {
+    //@ts-ignore
+    let todos = JSON.parse(localStorage.getItem('todos'));
+    if (todos !== null) this.todos = todos
     return this.todos
   }
 
   addTodo(todo: Todo) {
     this.todos.push(todo);
+    this.setLocalStorage();
   }
 
   updateTodo(index: number, updatedTodo: Todo) {
     this.todos[index] = updatedTodo
+    this.setLocalStorage();
   }
 
   deleteTodo(index: number) {
     this.todos.splice(index, 1);
+    this.setLocalStorage();
+  }
+
+  setLocalStorage() {
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 }
