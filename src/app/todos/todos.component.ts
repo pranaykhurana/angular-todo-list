@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Todo} from "../shared/todo.model";
 import {DataService} from "../shared/data.service";
 import {NgForm} from "@angular/forms";
@@ -15,15 +15,17 @@ export class TodosComponent implements OnInit {
   todos: Todo[];
   showValidationErrors: boolean = false;
 
-  constructor(private dataService: DataService,
-              private dialog: MatDialog) { }
+  constructor(
+    private dataService: DataService,
+    private dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.todos = this.dataService.getAllTodos();
   }
 
   onFormSubmit(form: NgForm) {
-    if(form.invalid) this.showValidationErrors = true;
+    if (form.invalid) this.showValidationErrors = true;
     else {
       this.dataService.addTodo(new Todo(form.value.text));
       form.resetForm();
